@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @User Brendan
  * @Package wp-custom-login-branding
@@ -10,4 +9,27 @@
 class wpCustomBranding
 {
 
+
+    function __construct()
+    {
+
+
+    }
+
+
+    function wclb_css()
+    {
+
+
+    }
+
+    function wclb_js()
+    {
+
+
+    }
+
+
 }
+
+$wclb = new wpCustomBranding();

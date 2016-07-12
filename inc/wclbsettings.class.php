@@ -15,16 +15,26 @@ class CustomLoginSettings {
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'custom_login_settings_add_plugin_page' ) );
         add_action( 'admin_init', array( $this, 'custom_login_settings_page_init' ) );
+        add_action( 'admin_enqueue_scripts', array($this, 'wclb_enqueue_scripts' ));
     }
 
     public function custom_login_settings_add_plugin_page() {
         add_options_page(
-            'Custom Login Settings', // page_title
-            'Custom Login Settings', // menu_title
-            'manage_options', // capability
-            'custom-login-settings', // menu_slug
-            array( $this, 'custom_login_settings_create_admin_page' ) // function
+            'Custom Login Settings',
+            'Custom Login',
+            'manage_options',
+            'custom-login-settings',
+            array( $this, 'custom_login_settings_create_admin_page' )
         );
+    }
+
+
+    public  function wclb_enqueue_scripts(){
+
+        wp_enqueue_media();
+        wp_enqueue_style( 'wp-color-picker' );
+        wp_enqueue_script( 'wclb-scripts', plugins_url('js/admin.js', __DIR__ ), array( 'wp-color-picker' ), false, true );
+
     }
 
     public function custom_login_settings_create_admin_page() {
@@ -47,16 +57,16 @@ class CustomLoginSettings {
 
     public function custom_login_settings_page_init() {
         register_setting(
-            'custom_login_settings_option_group', // option_group
-            'custom_login_settings_option_name', // option_name
-            array( $this, 'custom_login_settings_sanitize' ) // sanitize_callback
+            'custom_login_settings_option_group',
+            'custom_login_settings_option_name',
+            array( $this, 'custom_login_settings_sanitize' )
         );
 
         add_settings_section(
-            'custom_login_settings_setting_section', // id
+            'custom_login_settings_setting_section',
             'Settings', // title
-            array( $this, 'custom_login_settings_section_info' ), // callback
-            'custom-login-settings-admin' // page
+            array( $this, 'custom_login_settings_section_info' ),
+            'custom-login-settings-admin'
         );
 
         add_settings_field(
@@ -179,35 +189,35 @@ class CustomLoginSettings {
 
     public function logo_0_callback() {
         printf(
-            '<input class="regular-text" type="text" name="custom_login_settings_option_name[logo_0]" id="logo_0" value="%s">',
+            '<input class="regular-text" type="text" name="custom_login_settings_option_name[logo_0]" id="logo_0" value="%s"> <button class="button button-primary" id="wclb-bg" type="button">Upload</button>',
             isset( $this->custom_login_settings_options['logo_0'] ) ? esc_attr( $this->custom_login_settings_options['logo_0']) : ''
         );
     }
 
     public function background_image_1_callback() {
         printf(
-            '<input class="regular-text" type="text" name="custom_login_settings_option_name[background_image_1]" id="background_image_1" value="%s">',
+            '<input class="regular-text" type="text" name="custom_login_settings_option_name[background_image_1]" id="background_image_1" value="%s"> <button class="button button-primary" id="wclb-logo" type="button">Upload</button>',
             isset( $this->custom_login_settings_options['background_image_1'] ) ? esc_attr( $this->custom_login_settings_options['background_image_1']) : ''
         );
     }
 
     public function background_colour_2_callback() {
         printf(
-            '<input class="regular-text" type="text" name="custom_login_settings_option_name[background_colour_2]" id="background_colour_2" value="%s">',
+            '<input class="regular-text wclb-color" type="text" name="custom_login_settings_option_name[background_colour_2]" id="background_colour_2" value="%s">',
             isset( $this->custom_login_settings_options['background_colour_2'] ) ? esc_attr( $this->custom_login_settings_options['background_colour_2']) : ''
         );
     }
 
     public function hyperlink_colour_3_callback() {
         printf(
-            '<input class="regular-text" type="text" name="custom_login_settings_option_name[hyperlink_colour_3]" id="hyperlink_colour_3" value="%s">',
+            '<input class="regular-text wclb-color" type="text" name="custom_login_settings_option_name[hyperlink_colour_3]" id="hyperlink_colour_3" value="%s">',
             isset( $this->custom_login_settings_options['hyperlink_colour_3'] ) ? esc_attr( $this->custom_login_settings_options['hyperlink_colour_3']) : ''
         );
     }
 
     public function label_colour_4_callback() {
         printf(
-            '<input class="regular-text" type="text" name="custom_login_settings_option_name[label_colour_4]" id="label_colour_4" value="%s">',
+            '<input class="regular-text wclb-color" type="text" name="custom_login_settings_option_name[label_colour_4]" id="label_colour_4" value="%s">',
             isset( $this->custom_login_settings_options['label_colour_4'] ) ? esc_attr( $this->custom_login_settings_options['label_colour_4']) : ''
         );
     }

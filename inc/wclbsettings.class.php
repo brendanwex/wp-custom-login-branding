@@ -189,14 +189,14 @@ class CustomLoginSettings {
 
     public function logo_0_callback() {
         printf(
-            '<input class="regular-text" type="text" name="custom_login_settings_option_name[logo_0]" id="logo_0" value="%s"> <button class="button button-primary" id="wclb-bg" type="button">Upload</button>',
+            '<input class="regular-text" type="text" name="custom_login_settings_option_name[logo_0]" id="logo_0" value="%s"> <button class="button button-primary" id="wclb-logo" type="button">Upload</button>',
             isset( $this->custom_login_settings_options['logo_0'] ) ? esc_attr( $this->custom_login_settings_options['logo_0']) : ''
         );
     }
 
     public function background_image_1_callback() {
         printf(
-            '<input class="regular-text" type="text" name="custom_login_settings_option_name[background_image_1]" id="background_image_1" value="%s"> <button class="button button-primary" id="wclb-logo" type="button">Upload</button>',
+            '<input class="regular-text" type="text" name="custom_login_settings_option_name[background_image_1]" id="background_image_1" value="%s"> <button class="button button-primary" id="wclb-bg" type="button">Upload</button>',
             isset( $this->custom_login_settings_options['background_image_1'] ) ? esc_attr( $this->custom_login_settings_options['background_image_1']) : ''
         );
     }
@@ -224,14 +224,14 @@ class CustomLoginSettings {
 
     public function custom_css_5_callback() {
         printf(
-            '<textarea class="large-text" rows="5" name="custom_login_settings_option_name[custom_css_5]" id="custom_css_5">%s</textarea>',
+            '<textarea class="large-text" rows="5" name="custom_login_settings_option_name[custom_css_5]" id="custom_css_5">%s</textarea><br /><small>Opening and closing style tags required.</small>',
             isset( $this->custom_login_settings_options['custom_css_5'] ) ? esc_attr( $this->custom_login_settings_options['custom_css_5']) : ''
         );
     }
 
     public function custom_js_6_callback() {
         printf(
-            '<textarea class="large-text" rows="5" name="custom_login_settings_option_name[custom_js_6]" id="custom_js_6">%s</textarea>',
+            '<textarea class="large-text" rows="5" name="custom_login_settings_option_name[custom_js_6]" id="custom_js_6">%s</textarea><br /><small>Opening and closing script tags required.</small>',
             isset( $this->custom_login_settings_options['custom_js_6'] ) ? esc_attr( $this->custom_login_settings_options['custom_js_6']) : ''
         );
     }

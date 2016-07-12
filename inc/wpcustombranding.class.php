@@ -36,6 +36,12 @@ class wpCustomBranding
         $body_font_colour = $wclb_options['body_font_colour'];
         $button_font_colour = $wclb_options['button_font_colour'];
         $button_bg_colour = $wclb_options['button_bg_colour'];
+        if (isset($wclb_options['hide_box_shadow'])) {
+            $box_shadow = $wclb_options['hide_box_shadow'];
+        } else {
+            $box_shadow = "";
+        }
+
     ?>
         <style>
         body.login{
@@ -66,8 +72,14 @@ class wpCustomBranding
         border-color: <?php echo $button_bg_colour;?>;
         color: <?php echo $button_font_colour;?>;
             text-shadow: none;
-
         }
+
+        <?php if(empty($box_shadow)){?>
+        body.login form {
+            box-shadow: none !important;
+        }
+
+        <?php } ?>
         </style>
         <!-- Custom Login CSS-->
         <?php echo $custom_css;?>

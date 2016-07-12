@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP Custom Login Branding
 Plugin URI: https://github.com/brendanwex/wp-custom-login-branding
-Description: A brief description of the Plugin.
+Description: Simple plugin for developers / designers who want to brand WP login screen.
 Version: 1.0
 Author: Brendan Doyle
 Author URI: https://github.com/brendanwex/

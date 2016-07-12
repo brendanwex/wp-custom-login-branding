@@ -78,12 +78,40 @@ class CustomLoginSettings {
         );
 
         add_settings_field(
+            'logo_width', // id
+            'Logo Width', // title
+            array( $this, 'logo_width_callback' ), // callback
+            'custom-login-settings-admin', // page
+            'custom_login_settings_setting_section' // section
+        );
+
+        add_settings_field(
+            'logo_height', // id
+            'Logo Height', // title
+            array( $this, 'logo_height_callback' ), // callback
+            'custom-login-settings-admin', // page
+            'custom_login_settings_setting_section' // section
+        );
+
+
+
+        add_settings_field(
             'background_image_1', // id
             'Background Image', // title
             array( $this, 'background_image_1_callback' ), // callback
             'custom-login-settings-admin', // page
             'custom_login_settings_setting_section' // section
         );
+
+
+        add_settings_field(
+            'body_font_colour', // id
+            'Body Font Colour', // title
+            array( $this, 'body_font_colour_callback' ), // callback
+            'custom-login-settings-admin', // page
+            'custom_login_settings_setting_section' // section
+        );
+
 
         add_settings_field(
             'background_colour_2', // id
@@ -105,6 +133,30 @@ class CustomLoginSettings {
             'label_colour_4', // id
             'Label Colour', // title
             array( $this, 'label_colour_4_callback' ), // callback
+            'custom-login-settings-admin', // page
+            'custom_login_settings_setting_section' // section
+        );
+
+        add_settings_field(
+            'button_bg_colour', // id
+            'Login Button Background', // title
+            array( $this, 'button_bg_colour_callback' ), // callback
+            'custom-login-settings-admin', // page
+            'custom_login_settings_setting_section' // section
+        );
+
+        add_settings_field(
+            'button_font_colour', // id
+            'Login Button Font Colour', // title
+            array( $this, 'button_font_colour_callback' ), // callback
+            'custom-login-settings-admin', // page
+            'custom_login_settings_setting_section' // section
+        );
+
+        add_settings_field(
+            'hide_box_shadow', // id
+            'Login Form Box Shadow', // title
+            array( $this, 'hide_box_shadow_callback' ), // callback
             'custom-login-settings-admin', // page
             'custom_login_settings_setting_section' // section
         );
@@ -148,8 +200,20 @@ class CustomLoginSettings {
             $sanitary_values['logo_0'] = sanitize_text_field( $input['logo_0'] );
         }
 
+        if ( isset( $input['logo_width'] ) ) {
+            $sanitary_values['logo_width'] = sanitize_text_field( $input['logo_width'] );
+        }
+
+        if ( isset( $input['logo_height'] ) ) {
+            $sanitary_values['logo_height'] = sanitize_text_field( $input['logo_height'] );
+        }
+
         if ( isset( $input['background_image_1'] ) ) {
             $sanitary_values['background_image_1'] = sanitize_text_field( $input['background_image_1'] );
+        }
+
+        if ( isset( $input['body_font_colour'] ) ) {
+            $sanitary_values['body_font_colour'] = sanitize_text_field( $input['body_font_colour'] );
         }
 
         if ( isset( $input['background_colour_2'] ) ) {
@@ -164,12 +228,29 @@ class CustomLoginSettings {
             $sanitary_values['label_colour_4'] = sanitize_text_field( $input['label_colour_4'] );
         }
 
+        if ( isset( $input['button_bg_colour'] ) ) {
+            $sanitary_values['button_bg_colour'] = sanitize_text_field( $input['button_bg_colour'] );
+        }
+
+        if ( isset( $input['button_font_colour'] ) ) {
+            $sanitary_values['button_font_colour'] = sanitize_text_field( $input['button_font_colour'] );
+        }
+
+
+        if ( isset( $input['body_font_colour'] ) ) {
+            $sanitary_values['body_font_colour'] = sanitize_text_field( $input['body_font_colour'] );
+        }
+
+        if ( isset( $input['hide_box_shadow'] ) ) {
+            $sanitary_values['hide_box_shadow'] = sanitize_text_field( $input['hide_box_shadow'] );
+        }
+
         if ( isset( $input['custom_css_5'] ) ) {
-            $sanitary_values['custom_css_5'] = esc_textarea( $input['custom_css_5'] );
+            $sanitary_values['custom_css_5'] = $input['custom_css_5'];
         }
 
         if ( isset( $input['custom_js_6'] ) ) {
-            $sanitary_values['custom_js_6'] = esc_textarea( $input['custom_js_6'] );
+            $sanitary_values['custom_js_6'] = $input['custom_js_6'];
         }
 
         if ( isset( $input['text_before_form_7'] ) ) {
@@ -194,6 +275,20 @@ class CustomLoginSettings {
         );
     }
 
+    public function logo_width_callback() {
+        printf(
+            '<input class="regular-text" type="text" name="custom_login_settings_option_name[logo_width]" id="logo_width" style="width:100px" placeholder="500px" value="%s"><br /><small>Accepts pixels or percentage</small>',
+            isset( $this->custom_login_settings_options['logo_width'] ) ? esc_attr( $this->custom_login_settings_options['logo_width']) : ''
+        );
+    }
+
+    public function logo_height_callback() {
+        printf(
+            '<input class="regular-text" type="text" name="custom_login_settings_option_name[logo_height]" id="logo_height" style="width:100px" placeholder="500px" value="%s"><br /><small>Accepts pixels or percentage</small>',
+            isset( $this->custom_login_settings_options['logo_height'] ) ? esc_attr( $this->custom_login_settings_options['logo_height']) : ''
+        );
+    }
+
     public function background_image_1_callback() {
         printf(
             '<input class="regular-text" type="text" name="custom_login_settings_option_name[background_image_1]" id="background_image_1" value="%s"> <button class="button button-primary" id="wclb-bg" type="button">Upload</button>',
@@ -205,6 +300,13 @@ class CustomLoginSettings {
         printf(
             '<input class="regular-text wclb-color" type="text" name="custom_login_settings_option_name[background_colour_2]" id="background_colour_2" value="%s">',
             isset( $this->custom_login_settings_options['background_colour_2'] ) ? esc_attr( $this->custom_login_settings_options['background_colour_2']) : ''
+        );
+    }
+
+    public function body_font_colour_callback() {
+        printf(
+            '<input class="regular-text wclb-color" type="text" name="custom_login_settings_option_name[body_font_colour]" id="body_font_colour" value="%s">',
+            isset( $this->custom_login_settings_options['body_font_colour'] ) ? esc_attr( $this->custom_login_settings_options['body_font_colour']) : ''
         );
     }
 
@@ -222,17 +324,42 @@ class CustomLoginSettings {
         );
     }
 
+    public function button_font_colour_callback() {
+        printf(
+            '<input class="regular-text wclb-color" type="text" name="custom_login_settings_option_name[button_font_colour]" id="button_font_colour" value="%s">',
+            isset( $this->custom_login_settings_options['button_font_colour'] ) ? esc_attr( $this->custom_login_settings_options['button_font_colour']) : ''
+        );
+    }
+
+    public function button_bg_colour_callback() {
+        printf(
+            '<input class="regular-text wclb-color" type="text" name="custom_login_settings_option_name[button_bg_colour]" id="button_bg_colour" value="%s">',
+            isset( $this->custom_login_settings_options['button_bg_colour'] ) ? esc_attr( $this->custom_login_settings_options['button_bg_colour']) : ''
+        );
+    }
+
+    public function hide_box_shadow_callback() {
+
+
+        printf(
+            '<input type="checkbox" name="custom_login_settings_option_name[hide_box_shadow]" id="hide_box_shadow" value="%s" %s>', 'yes' ,
+            checked( isset( $this->custom_login_settings_options['hide_box_shadow'] ), true, false )
+
+        );
+    }
+
+
     public function custom_css_5_callback() {
         printf(
             '<textarea class="large-text" rows="5" name="custom_login_settings_option_name[custom_css_5]" id="custom_css_5">%s</textarea><br /><small>Opening and closing style tags required.</small>',
-            isset( $this->custom_login_settings_options['custom_css_5'] ) ? esc_attr( $this->custom_login_settings_options['custom_css_5']) : ''
+            isset( $this->custom_login_settings_options['custom_css_5'] ) ?  $this->custom_login_settings_options['custom_css_5'] : ''
         );
     }
 
     public function custom_js_6_callback() {
         printf(
             '<textarea class="large-text" rows="5" name="custom_login_settings_option_name[custom_js_6]" id="custom_js_6">%s</textarea><br /><small>Opening and closing script tags required.</small>',
-            isset( $this->custom_login_settings_options['custom_js_6'] ) ? esc_attr( $this->custom_login_settings_options['custom_js_6']) : ''
+            isset( $this->custom_login_settings_options['custom_js_6'] ) ?  $this->custom_login_settings_options['custom_js_6'] : ''
         );
     }
 

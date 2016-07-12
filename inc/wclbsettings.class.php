@@ -254,11 +254,11 @@ class CustomLoginSettings {
         }
 
         if ( isset( $input['text_before_form_7'] ) ) {
-            $sanitary_values['text_before_form_7'] = esc_textarea( $input['text_before_form_7'] );
+            $sanitary_values['text_before_form_7'] = $input['text_before_form_7'];
         }
 
         if ( isset( $input['text_after_form_8'] ) ) {
-            $sanitary_values['text_after_form_8'] = esc_textarea( $input['text_after_form_8'] );
+            $sanitary_values['text_after_form_8'] = $input['text_after_form_8'];
         }
 
         return $sanitary_values;
@@ -366,14 +366,14 @@ class CustomLoginSettings {
     public function text_before_form_7_callback() {
         printf(
             '<textarea class="large-text" rows="5" name="custom_login_settings_option_name[text_before_form_7]" id="text_before_form_7">%s</textarea>',
-            isset( $this->custom_login_settings_options['text_before_form_7'] ) ? esc_attr( $this->custom_login_settings_options['text_before_form_7']) : ''
+            isset($this->custom_login_settings_options['text_before_form_7']) ? $this->custom_login_settings_options['text_before_form_7'] : ''
         );
     }
 
     public function text_after_form_8_callback() {
         printf(
             '<textarea class="large-text" rows="5" name="custom_login_settings_option_name[text_after_form_8]" id="text_after_form_8">%s</textarea>',
-            isset( $this->custom_login_settings_options['text_after_form_8'] ) ? esc_attr( $this->custom_login_settings_options['text_after_form_8']) : ''
+            isset($this->custom_login_settings_options['text_after_form_8']) ? $this->custom_login_settings_options['text_after_form_8'] : ''
         );
     }
 

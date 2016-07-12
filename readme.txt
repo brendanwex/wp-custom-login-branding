@@ -1,20 +1,27 @@
-**WP Custom Login Branding**
+=== WP Custom Login Branding ===
+Contributors: 2Cloud
+Tags: login, branding, custom login, wp-login, wp-admin, whitelabel, white label
+Requires at least: 4.0.0
+Tested up to: 4.5.3
+Stable tag: trunk
+License: GPL2
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
-[https://github.com/brendanwex/wp-custom-login-branding](https://github.com/brendanwex/wp-custom-login-branding)
+A simple plugin that allows web developers and designers to brand the login page of WordPress for their customers.
 
-**Description**
+== Description ==
 A simple plugin that allows web developers and designers to brand the login page of WordPress for their customers.
 
 You can upload a logo, background image, change colors and add custom CSS and JavaScriptto the wp-login.php form.
 
-**Installation**
+== Installation ==
 Simple download the plugin, and extract it on to a folder on your computer. Using FTP upload the folder wp-custom-login-branding/ to your wp-content/plugins/ folder.
 
 Then from the plugins screen on WordPress, activate the plugin \"WP Custom Login Branding\".
 
 You can then use the plugins using the options page under the \"Settings\" menu of WordPress.
 
-**Frequently Asked Questions**
+== Frequently Asked Questions ==
 Can I add custom CSS code?
 Yes
 Can i add custom JavaScript?
@@ -24,8 +31,12 @@ Yes
 Can i add a background image?
 Yes
 
+== Screenshots ==
+1. Admin Interface
+2. Example of styled login screen
 
-**Changelog**
+== Changelog ==
 
 = 1.0 =
-Initial Release
+*Initial Release
+

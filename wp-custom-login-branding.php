@@ -11,5 +11,6 @@ License: A "Slug" license name e.g. GPL2
 if ( !defined('ABSPATH') ){
     wp_die("Not directly accessible!");
 }
+require_once("inc/wclbsettings.class.php");
 require_once("inc/wpcustombranding.class.php");
 

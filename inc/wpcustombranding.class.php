@@ -45,7 +45,9 @@ class wpCustomBranding
     ?>
         <style>
         body.login{
+        <?php if(empty($bg_image)){?>
         background-image: url('<?php echo $bg_image;?>');
+        <?php } ?>
         background-color: <?php echo $bg_colour;?>;
         color: <?php echo $body_font_colour;?>;
         }
@@ -53,8 +55,11 @@ class wpCustomBranding
         color:<?php echo $label_colour;?>;
         }
         body.login div#login h1 a {
+        <?php if(empty($main_logo)){?>
         background-image: url('<?php echo $main_logo;?>');
         background-size: cover;
+        <?php } ?>
+
         <?php if(!empty($logo_height)){
         echo "height: ".$logo_height.";";
         }

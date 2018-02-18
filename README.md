@@ -29,3 +29,5 @@ Yes
 
 = 1.0 =
 Initial Release
+= 1.1 =
+Fixes and Updates

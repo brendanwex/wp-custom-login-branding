@@ -2,7 +2,7 @@
 Contributors: 2Cloud
 Tags: login, branding, custom login, wp-login, wp-admin, whitelabel, white label
 Requires at least: 4.0.0
-Tested up to: 4.5.3
+Tested up to: 4.9.4
 Stable tag: trunk
 License: GPL2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
@@ -39,4 +39,6 @@ Yes
 
 = 1.0 =
 *Initial Release
+= 1.2 =
+*Updates
 

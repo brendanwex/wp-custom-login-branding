@@ -37,8 +37,11 @@ Yes
 
 == Changelog ==
 
+= 1.3 =
+*New Feature - change link from wordpress.org to your website link or custom link
+= 1.1 =
+*Updates
 = 1.0 =
 *Initial Release
-= 1.2 =
-*Updates
+
 

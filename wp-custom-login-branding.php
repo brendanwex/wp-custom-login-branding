@@ -3,7 +3,7 @@
 Plugin Name: WP Custom Login Branding
 Plugin URI: https://github.com/brendanwex/wp-custom-login-branding
 Description: Simple plugin for developers / designers who want to brand WP login screen.
-Version: 1.1
+Version: 1.3
 Author: 2Cloud
 Author URI: https://www.2cloud.ie
 License: GPL2

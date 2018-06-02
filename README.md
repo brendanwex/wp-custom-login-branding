@@ -27,7 +27,18 @@ Yes
 
 **Changelog**
 
-= 1.0 =
-Initial Release
-= 1.1 =
+= 1.3 =
+
+New Feature - Change link from wordpress.org to your website or custom link
+
+= 1.2 =
+
 Fixes and Updates
+
+= 1.1 =
+
+Fixes and Updates
+
+= 1.0 =
+
+Initial Release

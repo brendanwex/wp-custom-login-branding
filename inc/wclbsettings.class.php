@@ -162,6 +162,14 @@ class CustomLoginSettings {
         );
 
         add_settings_field(
+            'change_login_url', // id
+            'Custom Logo Link', // title
+            array( $this, 'change_login_url_callback' ), // callback
+            'custom-login-settings-admin', // page
+            'custom_login_settings_setting_section' // section
+        );
+
+        add_settings_field(
             'custom_css_5', // id
             'Custom CSS', // title
             array( $this, 'custom_css_5_callback' ), // callback
@@ -261,6 +269,12 @@ class CustomLoginSettings {
             $sanitary_values['text_after_form_8'] = $input['text_after_form_8'];
         }
 
+        if( isset($input['change_login_url'])){
+
+            $sanitary_values['change_login_url'] = $input['change_login_url'];
+
+        }
+
         return $sanitary_values;
     }
 
@@ -346,6 +360,15 @@ class CustomLoginSettings {
             checked( isset( $this->custom_login_settings_options['hide_box_shadow'] ), true, false )
 
         );
+    }
+
+    public function change_login_url_callback(){
+
+        printf(
+            '<input class="regular-text" type="text" name="custom_login_settings_option_name[change_login_url]" id="change_login_url" placeholder="http://www.example.com" value="%s">',
+            isset( $this->custom_login_settings_options['change_login_url'] ) ? esc_attr( $this->custom_login_settings_options['change_login_url']) : ''
+        );
+
     }
 
 
